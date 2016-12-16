@@ -13,7 +13,7 @@ namespace ProgramTests {
 
       [Fact]
       public void FailingTest(){
-        Add(2,3).Should().Be(4);
+        Add(2,3).Should().Be(5);
       }
 
       int Add(int x, int y){
