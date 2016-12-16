@@ -16,6 +16,11 @@ namespace ProgramTests {
         Add(2,3).Should().Be(5);
       }
 
+      [Fact]
+      public void NewTest(){
+        Add(3,3).Should().Be(6);
+      }
+
       int Add(int x, int y){
         return x + y;
       }
