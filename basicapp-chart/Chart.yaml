@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Basicapp Kubernetes deployment
+name: basicapp-chart
+version: 0.1.0
