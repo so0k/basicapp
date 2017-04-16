@@ -17,4 +17,4 @@ build:
 integrations:
   hub:
     - integrationName: quay
-      type: quay
+      type: quay.io
