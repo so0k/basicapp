@@ -1,13 +1,16 @@
-FROM microsoft/dotnet:latest
+# This is non optimized image
 
-COPY . /app
+FROM microsoft/dotnet:1.1-sdk
+
+COPY BasicApp /app
 
 WORKDIR /app
 
 RUN ["dotnet", "restore"]
-
 RUN ["dotnet", "build"]
 
+ENV ASPNETCORE_URLS="http://*:5000"
+ENV ASPNETCORE_ENVIRONMENT="Development"
 EXPOSE 5000/tcp
-
-CMD ["dotnet", "run", "--server.urls", "http://*:5000"]
+ENTRYPOINT ["/usr/bin/dotnet"]
+CMD ["run"]
