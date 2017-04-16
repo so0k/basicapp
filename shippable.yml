@@ -16,7 +16,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: vincentdesmet-quay
+    - integrationName: quay
       type: quay
       branches:
         only:
