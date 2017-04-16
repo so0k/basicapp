@@ -1,0 +1,24 @@
+build:
+  pre_ci_boot:
+    image_name: microsoft/dotnet
+    image_tag: 1.1-sdk
+    pull: true
+  ci:
+    - dotnet restore
+    - dotnet test BasicAppTests/BasicAppTests.csproj
+    - dotnet publish BasicApp/BasicApp.csproj -c Release -o bin
+
+  on_success:
+    - docker build -f prod.Dockerfile -t quay.io/vincentdesmet/basicapp:latest .
+
+  push:
+    - docker push quay.io/vincentdesmet/basicapp:latest
+
+integrations:
+  hub:
+    - integrationName: vincentdesmet-quay
+      type: quay
+      branches:
+        only:
+          - master
+          - dev
