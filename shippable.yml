@@ -18,7 +18,3 @@ integrations:
   hub:
     - integrationName: quay
       type: quay
-      branches:
-        only:
-          - master
-          - dev
