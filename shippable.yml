@@ -9,9 +9,11 @@ build:
     - dotnet publish BasicApp/BasicApp.csproj -c Release -o bin
 
   on_success:
-    - docker build -f prod.Dockerfile -t quay.io/vincentdesmet/basicapp:latest .
+    - docker build -f prod.Dockerfile -t quay.io/vincentdesmet/basicapp:${COMMIT} .
+    - docker tag quay.io/vincentdesmet/basicapp:${COMMIT} quay.io/vincentdesmet/basicapp:latest
 
   push:
+    - docker push quay.io/vincentdesmet/basicapp:${COMMIT}
     - docker push quay.io/vincentdesmet/basicapp:latest
 
 integrations:
