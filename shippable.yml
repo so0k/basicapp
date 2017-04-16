@@ -16,5 +16,5 @@ build:
 
 integrations:
   hub:
-    - integrationName: quay_integration
+    - integrationName: lolwut
       type: quay.io
